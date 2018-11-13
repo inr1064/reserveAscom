@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="人数と利用時間を選択"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:text="大人"
+            android:layout_weight="1"/>
+        <a_s.com.co.reserveascom.MyNumberPicker
+            android:id="@+id/adult"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            max="4"
+            min="1"
+            initial="1"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:text="子供"
+            android:layout_weight="1"/>
+        <a_s.com.co.reserveascom.MyNumberPicker
+            android:id="@+id/child"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            max="4"
+            min="1"
+            initial="1"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:text="利用時間"
+            android:layout_weight="1"/>
+        <a_s.com.co.reserveascom.MyNumberPicker
+            android:id="@+id/playTime"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            max="2"
+            min="1"
+            initial="1"
+            />
+
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/ptBtn"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#999999"
+        android:text="次へ"/>
+
+</LinearLayout>
