@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -19,6 +20,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,6 +33,8 @@ public class People_time extends AppCompatActivity {
     MyNumberPicker a ;
     MyNumberPicker c ;
     MyNumberPicker p;
+
+    ArrayList<ReserveSpaceVO> list = new ArrayList<>();
 
     URL url;
     HttpURLConnection con;
@@ -49,6 +53,8 @@ public class People_time extends AppCompatActivity {
         c = (MyNumberPicker) findViewById(R.id.child);
         p = (MyNumberPicker) findViewById(R.id.playTime);
 
+
+
         ptBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,7 +71,7 @@ public class People_time extends AppCompatActivity {
 
                 try{
                     //サーバーのIPアドレス、ポートの番号、Context root、Request Mapping
-                    url = new URL("http://192.168.1.156:8888/kidsCafe/TimeSche");
+                    url = new URL("http://192.168.1.156:8888/kidsCafe/mobile/TimeSche");
                 } catch (MalformedURLException e){
                     Toast.makeText(People_time.this,"Wrong URL.", Toast.LENGTH_SHORT).show();
                 }
@@ -97,7 +103,19 @@ public class People_time extends AppCompatActivity {
                                 page += line;
                             }
 
-                            Toast.makeText(People_time.this, page, Toast.LENGTH_SHORT).show();
+                           try
+                           {
+                               jsonParse(page);
+                           }
+                           catch (Exception e)
+                           {
+
+                                Log.e(this.getClass().getName(),"problem = "+e+"");
+                           }
+
+                            Log.e(this.getClass().getName(),"arraylist = "+list+"");
+
+
 
                         }
 
@@ -114,6 +132,7 @@ public class People_time extends AppCompatActivity {
                 intent.putExtra("adult",adult);
                 intent.putExtra("child",child);
                 intent.putExtra("playTime",playTime);
+                intent.putExtra("ReserveSpaceList",list);
                 startActivity(intent);
 
             }
@@ -150,23 +169,23 @@ public class People_time extends AppCompatActivity {
     public void jsonParse(String page){
         JSONArray jarray = null;
         JSONObject item = null;
+        ReserveSpaceVO space = null;
+
 
         try {
             jarray = new JSONArray(page);
 
-
-            StringBuilder sb2 = new StringBuilder();
             for (int i = 0; i < jarray.length(); i++) {
+
                 item = jarray.getJSONObject(i);
-                sb2.append("번호:");
-                sb2.append(item.getInt("num"));
-                sb2.append(" 이름:");
-                sb2.append(item.getString("name"));
-                sb2.append(" 전화:");
-                sb2.append(item.getString("phone"));
-                sb2.append("\n");
+
+                space = new ReserveSpaceVO(item.getString("resDate"),item.getInt("resTime"));
+
+                list.add(space);
+
             }
-            /*textShow.setText(sb2.toString());*/
+
+
 
         } catch (JSONException e) {
             e.printStackTrace();
