@@ -1,10 +1,14 @@
 package a_s.com.co.reserveascom;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
+
+import java.util.regex.Pattern;
 
 public class Ind_info extends AppCompatActivity {
 
@@ -57,6 +63,7 @@ public class Ind_info extends AppCompatActivity {
 
         resName = (EditText)findViewById(R.id.resName);
         phone = (EditText)findViewById(R.id.phone);
+        phone.addTextChangedListener(new PhoneNumberFormattingTextWatcher());//連絡先入力の時に自動で‘－‘入力
         mail = (EditText)findViewById(R.id.mail);
 
         ind_infoBtn = (Button)findViewById(R.id.ind_infoBtn);
@@ -68,14 +75,55 @@ public class Ind_info extends AppCompatActivity {
         ind_infoBtn.setOnClickListener(new View.OnClickListener() {
                                            @Override
                                            public void onClick(View view) {
-                                                String resN = resName.getText().toString();
+                                                if (resName.getText().toString().length() == 0){
+                                                    Toast.makeText(Ind_info.this,"お名前を入力してください",Toast.LENGTH_SHORT).show();
+                                                    resName.requestFocus();
+                                                    return;
+                                                }
+                                                else if (phone.getText().toString().length() == 0){
+                                                   Toast.makeText(Ind_info.this,"携帯電話番号を入力してください",Toast.LENGTH_SHORT).show();
+                                                   phone.requestFocus();
+                                                   return;
+                                                }
+                                               else  if (mail.getText().toString().length() == 0){
+                                                    Toast.makeText(Ind_info.this,"E-mailを入力してください",Toast.LENGTH_SHORT).show();
+                                                    mail.requestFocus();
+                                                    return;
+                                                }
+                                                else if (!Pattern.matches("^\\d{2,3}-\\d{3,4}-\\d{4}$", phone.getText().toString())) {
+                                                    Toast.makeText(Ind_info.this,"携帯電話番号形式ではありません",Toast.LENGTH_SHORT).show();
+                                                    phone.requestFocus();
+                                                    return;
+                                                }
+                                                else if(!android.util.Patterns.EMAIL_ADDRESS.matcher(mail.getText().toString()).matches()) {
+                                                   Toast.makeText(Ind_info.this,"E-mail形式ではありません",Toast.LENGTH_SHORT).show();
+                                                   mail.requestFocus();
+                                                   return;
+                                               }
+
+
+
+
+                                               String resN = resName.getText().toString();
                                                 String ph = phone.getText().toString();
                                                 String ma = mail.getText().toString();
 
-                                                intent2.putExtra("resName",resN);
-                                                intent2.putExtra("phone",ph);
-                                                intent2.putExtra("email",ma);
-                                                startActivity(intent2);
+                                               intent2.putExtra("resName",resN);
+                                               intent2.putExtra("phone",ph);
+                                               intent2.putExtra("email",ma);
+                                           /*  if(!android.util.Patterns.EMAIL_ADDRESS.matcher(ma).matches())
+                                             {
+                                                   Toast.makeText(Ind_info.this,"E-mail形式ではありません",Toast.LENGTH_LONG);
+                                                 return;
+                                             } else if (!Pattern.matches("^01(?:0|1|[6-9]) - (?:\\d{3}|\\d{4}) - \\d{4}$", ph))
+                                               {
+                                                   Toast.makeText(Ind_info.this,"携帯電話番号形式ではありません",Toast.LENGTH_LONG);
+                                                   return;
+                                             }else{
+
+                                                 startActivity(intent2);
+                                             }*/
+                                               startActivity(intent2);
 
                                            }
                                        }
