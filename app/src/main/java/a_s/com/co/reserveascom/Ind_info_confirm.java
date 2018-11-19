@@ -34,6 +34,7 @@ public class Ind_info_confirm extends AppCompatActivity {
     int startTime;
     int adult;
     int child;
+    int resNum;
 
     String resName;
     String phone;
@@ -159,6 +160,11 @@ public class Ind_info_confirm extends AppCompatActivity {
                     }
                 }
 
+                Intent intent2 = new Intent(Ind_info_confirm.this,Ticket.class);
+                intent2.putExtra("resNum",resNum);
+                startActivity(intent2);
+
+
                 /*Intent intent2 = new Intent(Ind_info_confirm.this,Ticket.class);
 
                 intent2.putExtra("year",to_year);
@@ -210,7 +216,7 @@ public class Ind_info_confirm extends AppCompatActivity {
     public void jsonParse(String page){
         JSONArray jarray = null;
         JSONObject item = null;
-        ReserveSpaceVO space = null;
+        String tempInt = null;
 
 
         try {
@@ -220,7 +226,11 @@ public class Ind_info_confirm extends AppCompatActivity {
 
                 item = jarray.getJSONObject(i);
 
-                space = new ReserveSpaceVO(item.getString("resDate"),item.getInt("resTime"));
+                tempInt = item.getString("resNum");
+
+                resNum = Integer.parseInt(tempInt);
+
+                /*space = new ReserveSpaceVO(item.getString("resDate"),item.getInt("resTime"));*/
 
                 /*list.add(space);*/
 
