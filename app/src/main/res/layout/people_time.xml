@@ -80,6 +80,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="#999999"
-        android:text="次へ"/>
+        android:text="次へ"
+        />
 
 </LinearLayout>
