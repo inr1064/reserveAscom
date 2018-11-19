@@ -3,4 +3,36 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="予約番号発行"
+        android:gravity="center"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="予約番号です。"
+        android:gravity="center"
+        />
+    <TextView
+        android:id="@+id/resNumTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="メールで送信致しましたので
+        ご確認お願いします。"
+        android:gravity="center"
+        />
+    <Button
+        android:id="@+id/backToIntro"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="終了して最初に"
+        />
+
 </LinearLayout>

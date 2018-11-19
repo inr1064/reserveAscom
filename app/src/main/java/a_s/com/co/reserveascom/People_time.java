@@ -90,7 +90,7 @@ public class People_time extends AppCompatActivity {
                         OutputStream os = con.getOutputStream();
                         os.write(param.getBytes("UTF-8"));
                         os.flush();
-                        os.close();
+                        /*os.close();*/
 
                         if(con.getResponseCode() == HttpURLConnection.HTTP_OK){
 
