@@ -53,43 +53,43 @@
                     android:id="@+id/day3"
                     android:layout_width="80dp"
                     android:layout_height="match_parent"
-                    android:textSize="10dp"
+                    android:textSize="15dp"
                     />
                 <Button
                     android:id="@+id/day4"
                     android:layout_width="80dp"
                     android:layout_height="match_parent"
-                    android:textSize="10dp"
+                    android:textSize="15dp"
                     />
                 <Button
                     android:id="@+id/day5"
                     android:layout_width="80dp"
                     android:layout_height="match_parent"
-                    android:textSize="10dp"
+                    android:textSize="15dp"
                     />
                 <Button
                     android:id="@+id/day6"
                     android:layout_width="80dp"
                     android:layout_height="match_parent"
-                    android:textSize="10dp"
+                    android:textSize="15dp"
                     />
                 <Button
                     android:id="@+id/day7"
                     android:layout_width="80dp"
                     android:layout_height="match_parent"
-                    android:textSize="10dp"
+                    android:textSize="15dp"
                     />
                 <Button
                     android:id="@+id/day8"
                     android:layout_width="80dp"
                     android:layout_height="match_parent"
-                    android:textSize="10dp"
+                    android:textSize="15dp"
                     />
                 <Button
                     android:id="@+id/day9"
                     android:layout_width="80dp"
                     android:layout_height="match_parent"
-                    android:textSize="10dp"
+                    android:textSize="15dp"
                     />
             </TableRow>
             <TableRow
