@@ -129,7 +129,7 @@ public class People_time extends AppCompatActivity {
                     }
                 }
 
-                Intent intent = new Intent(People_time.this,Week_calendar.class);
+                Intent intent = new Intent(People_time.this,Reserve_date.class);
                 intent.putExtra("adult",adult);
                 intent.putExtra("child",child);
                 intent.putExtra("playTime",playTime);
