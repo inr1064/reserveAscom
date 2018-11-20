@@ -1,6 +1,7 @@
 package a_s.com.co.reserveascom;
 
 import android.content.Intent;
+
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.Nullable;
@@ -133,6 +134,7 @@ public class People_time extends AppCompatActivity {
                 intent.putExtra("child",child);
                 intent.putExtra("playTime",playTime);
                 intent.putExtra("ReserveSpaceList",list);
+
                 startActivity(intent);
 
             }
@@ -185,14 +187,9 @@ public class People_time extends AppCompatActivity {
 
             }
 
-
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
-
-
-
 
 }

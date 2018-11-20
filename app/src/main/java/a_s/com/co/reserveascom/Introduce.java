@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+//사용하지 않는 페이지 (잠시 보류중)
 public class Introduce extends AppCompatActivity {
 
     Button introBtn;
