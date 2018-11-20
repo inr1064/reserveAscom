@@ -13,6 +13,7 @@ import org.w3c.dom.Text;
 
 public class Ticket extends AppCompatActivity {
 
+    private BackPressCloseHandler backPressCloseHandler;
     TextView resNumTV;
     int resNum;
 
@@ -23,23 +24,31 @@ public class Ticket extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ticket);
 
+        backPressCloseHandler = new BackPressCloseHandler(this);
+
         Intent intent = getIntent();
 
         resNum = intent.getIntExtra("resNum",0);
 
         resNumTV = (TextView)findViewById(R.id.resNumTV);
-        backToIntro = (Button)findViewById(R.id.backToIntro);
-
         resNumTV.setText(Integer.toString(resNum));
-
+        backToIntro = (Button)findViewById(R.id.backToIntro);
         backToIntro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
-            }
-        });
+                   Intent intentHome = new Intent(getApplicationContext(),MainActivity.class );
+                   intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                   intentHome.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                   startActivity(intentHome);
+                }
 
-
+        }) ;
 
     }
+
+    @Override
+    public void onBackPressed(){
+        backPressCloseHandler.onBackPressed();
+    }
+
 }

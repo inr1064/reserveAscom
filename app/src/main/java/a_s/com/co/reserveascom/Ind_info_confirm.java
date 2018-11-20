@@ -27,6 +27,8 @@ import java.util.Map;
 
 public class Ind_info_confirm extends AppCompatActivity {
 
+    private BackPressCloseHandler backPressCloseHandler;
+
     int to_year;
     int to_month;
     int to_day;
@@ -50,6 +52,7 @@ public class Ind_info_confirm extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ind_info_confirm);
+        backPressCloseHandler = new BackPressCloseHandler(this);
 
         Intent intent = getIntent();
         to_year = intent.getIntExtra("year",0);
@@ -184,6 +187,11 @@ public class Ind_info_confirm extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public void onBackPressed(){
+        backPressCloseHandler.onBackPressed();
     }
 
     //サーバーに送るデータをStringに変換
