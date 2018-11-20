@@ -29,6 +29,7 @@ import java.util.Map;
 
 public class People_time extends AppCompatActivity {
 
+    private BackPressCloseHandler backPressCloseHandler;
     Button ptBtn;
     int adult = 1;
     int child = 1;
@@ -48,6 +49,8 @@ public class People_time extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.people_time);
+
+        backPressCloseHandler = new BackPressCloseHandler(this);
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -151,6 +154,11 @@ public class People_time extends AppCompatActivity {
             }
 
         });
+    }
+
+    @Override
+    public void onBackPressed(){
+        backPressCloseHandler.onBackPressed();
     }
 
 

@@ -24,6 +24,8 @@ import java.util.Calendar;
 
 public class Week_calendar extends AppCompatActivity {
 
+    private BackPressCloseHandler backPressCloseHandler;
+
     int adult;
     int child;
     int playTime;
@@ -54,6 +56,8 @@ public class Week_calendar extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.week_calendar);
+
+        backPressCloseHandler = new BackPressCloseHandler(this);
 
        // requestWindowFeature(Window.FEATURE_NO_TITLE); //Title Bar 削除
 
@@ -153,6 +157,7 @@ public class Week_calendar extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
     }
+
 
     private void fourYear() {
         if ((to_year % 4 == 0 && to_year % 100 != 0) || to_year % 400 == 0) {
@@ -387,6 +392,10 @@ public class Week_calendar extends AppCompatActivity {
             return false;
         }
         return true;
+    }
+    @Override
+    public void onBackPressed(){
+        backPressCloseHandler.onBackPressed();
     }
 
 }
