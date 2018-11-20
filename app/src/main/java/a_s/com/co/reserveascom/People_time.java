@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.Checkable;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -34,6 +36,7 @@ public class People_time extends AppCompatActivity {
     MyNumberPicker a ;
     MyNumberPicker c ;
     MyNumberPicker p;
+    CheckBox cb;
 
     ArrayList<ReserveSpaceVO> list = new ArrayList<>();
 
@@ -53,12 +56,15 @@ public class People_time extends AppCompatActivity {
         a = (MyNumberPicker) findViewById(R.id.adult);
         c = (MyNumberPicker) findViewById(R.id.child);
         p = (MyNumberPicker) findViewById(R.id.playTime);
+        cb = (CheckBox)findViewById(R.id.acceptCheck);
 
 
 
         ptBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(cb.isChecked()==true){
+
                 adult = a.getValue();
                 child = c.getValue();
                 playTime = p.getValue();
@@ -136,10 +142,17 @@ public class People_time extends AppCompatActivity {
                 intent.putExtra("ReserveSpaceList",list);
 
                 startActivity(intent);
+                }
+                else {
+                    Toast.makeText(People_time.this,"ご利用の為に注意事項の同意が必要です。",Toast.LENGTH_LONG).show();
+                    cb.requestFocus();
+                }
 
             }
+
         });
     }
+
 
     //サーバーに送るデータをStringに変換
     public String makeParams(HashMap<String,String> params){
@@ -193,3 +206,5 @@ public class People_time extends AppCompatActivity {
     }
 
 }
+
+
