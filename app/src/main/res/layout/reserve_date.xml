@@ -22,7 +22,6 @@
 
 
         <Button
-            android:id="@+id/reserveBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/calendar"
@@ -31,10 +30,21 @@
             />
 
         <Button
+            android:id="@+id/reserveBtn"
             android:layout_width="100dp"
             android:layout_height="25dp"
             android:layout_gravity="center"
-            android:layout_marginTop="160dp"
+            android:layout_marginTop="220dp"
+            android:layout_marginLeft="60dp"
+            android:background="@drawable/susumu_button"
+            />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="220dp"
+            android:layout_marginRight="60dp"
             android:background="@drawable/modoru_button"
             />
 

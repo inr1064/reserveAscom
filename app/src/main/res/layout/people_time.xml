@@ -175,7 +175,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="総合    　￥"
-
                     android:textColor="#000000"
                 />
                 <EditText
