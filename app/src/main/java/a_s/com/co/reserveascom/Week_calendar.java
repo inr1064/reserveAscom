@@ -2,7 +2,9 @@ package a_s.com.co.reserveascom;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -118,10 +120,18 @@ public class Week_calendar extends AppCompatActivity {
                 Button btn = new Button(this);
                 btn.setId(newBtn);
                 btn.setLayoutParams(pm);
-                btn.setText(reserveCal[i][j] + " ");
-              
+                if(reserveCal[i][j]<20){
+                    //btn.setText(reserveCal[i][j] + " ");
+                    //btn.setBackgroundColor(Color.GREEN);
+                    btn.setBackgroundDrawable(getResources().getDrawable(R.drawable.circle));
+                    btn.setEnabled(true);
+                }else if (reserveCal[i][j]>=20){
+                    //btn.setText(reserveCal[i][j] + " ");
+                    //btn.setBackgroundColor(Color.YELLOW);
+                    btn.setBackgroundDrawable(getResources().getDrawable(R.drawable.cross));
+                    btn.setEnabled(false);
+                }
 
-                btn.setBackgroundColor(Color.WHITE);
                 btn.setOnClickListener(new KnowIndexOnClickListener(i, j,playTime) {
                     Calendar cal = Calendar.getInstance();
                     protected int to_year = cal.get(cal.YEAR);
