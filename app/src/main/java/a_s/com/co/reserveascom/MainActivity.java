@@ -11,11 +11,16 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    private BackPressCloseHandler backPressCloseHandler;
+
     Button mainBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);        setContentView(R.layout.activity_main);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        backPressCloseHandler = new BackPressCloseHandler(this);
 
         mainBtn = (Button) findViewById(R.id.mainBtn);
 
@@ -33,6 +38,11 @@ public class MainActivity extends AppCompatActivity {
         actionBar.hide();
 
 
+    }
+
+    @Override
+    public void onBackPressed(){
+        backPressCloseHandler.onBackPressed();
     }
 
 }
