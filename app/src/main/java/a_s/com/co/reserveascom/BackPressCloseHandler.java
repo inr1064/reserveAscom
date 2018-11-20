@@ -25,7 +25,7 @@ public class BackPressCloseHandler {
     }
 
     public void showGuide(){
-        toast = Toast.makeText(activity, "push back button to exit", Toast.LENGTH_SHORT);
+        toast = Toast.makeText(activity, "Press Back Again to Exit", Toast.LENGTH_SHORT);
         toast.show();
     }
 }
