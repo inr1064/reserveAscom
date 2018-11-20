@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+ <FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+
+
 
     <HorizontalScrollView
         android:layout_width="wrap_content"
@@ -9,66 +15,82 @@
         android:scrollbarSize="5dp"
         android:scrollbarFadeDuration="0"
         android:scrollbarAlwaysDrawHorizontalTrack="false"
-        android:scrollbars="">
+        android:scrollbars=""
+        android:layout_marginTop="70dp"
+        >
+
+
         <TableLayout
             android:layout_width="wrap_content"
-            android:layout_height="550dp">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            >
             <TableRow
                 android:height="50dp"
                 android:id="@+id/weekDays"
                 >
                 <Button
-                    android:layout_width="50dp"
+                    android:layout_width="40dp"
                     android:layout_height="50dp"
                     android:text="日時"
-                    android:textSize="10dp"
-
+                    android:textSize="15dp"
+                    android:background="@drawable/time"
+                    android:layout_marginTop="0dp"
                     />
                 <Button
                     android:id="@+id/day1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
-                    android:textSize="10dp"/>
+                    android:textSize="15dp"
+                    />
                 <Button
                     android:id="@+id/day2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
-                    android:textSize="10dp"/>
+                    android:textSize="15dp"
+                    />
                 <Button
                     android:id="@+id/day3"
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
-                    android:textSize="10dp"/>
+                    android:textSize="10dp"
+                    />
                 <Button
                     android:id="@+id/day4"
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
-                    android:textSize="10dp"/>
+                    android:textSize="10dp"
+                    />
                 <Button
                     android:id="@+id/day5"
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
-                    android:textSize="10dp"/>
+                    android:textSize="10dp"
+                    />
                 <Button
                     android:id="@+id/day6"
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
-                    android:textSize="10dp"/>
+                    android:textSize="10dp"
+                    />
                 <Button
                     android:id="@+id/day7"
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
-                    android:textSize="10dp"/>
+                    android:textSize="10dp"
+                    />
                 <Button
                     android:id="@+id/day8"
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
-                    android:textSize="10dp"/>
+                    android:textSize="10dp"
+                    />
                 <Button
                     android:id="@+id/day9"
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
-                    android:textSize="10dp"/>
+                    android:textSize="10dp"
+                    />
             </TableRow>
             <TableRow
                 android:id="@+id/hour1"
@@ -79,7 +101,9 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:text="10時"
-                    android:textSize="10dp"
+                    android:textSize="15dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/time"
                     />
 
             </TableRow>
@@ -92,7 +116,9 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:text="11時"
-                    android:textSize="10dp"
+                    android:textSize="15dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/time"
                     />
 
             </TableRow>
@@ -105,7 +131,9 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:text="12時"
-                    android:textSize="10dp"
+                    android:textSize="15dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/time"
                     />
 
             </TableRow>
@@ -118,7 +146,9 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:text="13時"
-                    android:textSize="10dp"
+                    android:textSize="15dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/time"
                     />
 
             </TableRow>
@@ -131,7 +161,9 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:text="14時"
-                    android:textSize="10dp"
+                    android:textSize="15dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/time"
                     />
 
             </TableRow>
@@ -139,12 +171,15 @@
                 android:id="@+id/hour6"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+
                 >
                 <Button
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:text="15時"
-                    android:textSize="10dp"
+                    android:textSize="15dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/time"
                     />
 
             </TableRow>
@@ -157,21 +192,25 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:text="16時"
-                    android:textSize="10dp"
+                    android:textSize="15dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/time"
                     />
 
             </TableRow>
+
             <TableRow
                 android:id="@+id/hour8"
                 android:layout_width="50dp"
-                android:layout_height="50dp"
-                >
+                android:layout_height="50dp">
+
                 <Button
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/time"
                     android:text="17時"
-                    android:textSize="10dp"
-                    />
+                    android:textSize="15dp" />
 
             </TableRow>
             <TableRow
@@ -183,7 +222,9 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:text="18時"
-                    android:textSize="10dp"
+                    android:textSize="15dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/time"
                     />
 
             </TableRow>
@@ -196,7 +237,9 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:text="19時"
-                    android:textSize="10dp"
+                    android:textSize="15dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/time"
                     />
 
             </TableRow>
@@ -204,5 +247,19 @@
         </TableLayout>
     </HorizontalScrollView>
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        />
 
-</LinearLayout>
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:background="@drawable/title"
+        android:layout_gravity="center|top"
+        />
+
+
+</FrameLayout>
+

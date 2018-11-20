@@ -33,6 +33,7 @@
         <activity android:name=".People_time"/>
         <activity android:name=".Ticket"/>
         <activity android:name=".Week_calendar"/>
+        <activity android:name=".Reserve_date"/>
     </application>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>

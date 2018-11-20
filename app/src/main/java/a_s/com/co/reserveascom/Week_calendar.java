@@ -8,8 +8,10 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Display;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.GridView;
@@ -52,6 +54,8 @@ public class Week_calendar extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.week_calendar);
+
+       // requestWindowFeature(Window.FEATURE_NO_TITLE); //Title Bar 削除
 
         fourYear();
 
@@ -375,5 +379,14 @@ public class Week_calendar extends AppCompatActivity {
             to_month = cal.get(cal.MONTH) + 1;
             to_day = cal.get(cal.DATE);
         }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        //바깥레이어 클릭시 안닫히게
+        if(event.getAction()==MotionEvent.ACTION_OUTSIDE){
+            return false;
+        }
+        return true;
+    }
 
 }
