@@ -4,7 +4,6 @@
 <ScrollView
 
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ScrollView2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -21,21 +20,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <CheckBox
-            android:id="@+id/acceptCheck"
-            android:layout_width="184dp"
-            android:layout_height="147dp"
-            android:layout_marginTop="1100dp"
-            android:text="同意します。"
-            />
-
         <Button
             android:id="@+id/ptBtn"
             android:layout_width="100dp"
             android:layout_height="25dp"
             android:layout_gravity="center"
-            android:layout_marginTop="400dp"
+            android:layout_marginTop="490dp"
+            android:layout_marginLeft="60dp"
             android:background="@drawable/susumu_button"
 
             />
@@ -51,11 +42,9 @@
             />
 
         <ImageView
-            android:id="@+id/peopletimeImage"
             android:layout_width="wrap_content"
             android:layout_height="1100dp"
             android:layout_gravity="center"
-            android:layout_marginTop="-52dp"
             android:background="@drawable/people_time_layout" />
       
      
@@ -191,7 +180,6 @@
                 <EditText
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-
                     android:backgroundTint="@color/colorPrimary"
                     android:focusableInTouchMode="false"
                     />
@@ -201,6 +189,13 @@
 
         </TableLayout>
 
+        <CheckBox
+            android:id="@+id/acceptCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="975dp"
+            android:layout_marginLeft="155dp"
+            android:button="@drawable/check_box" />
 
 
     </FrameLayout>
