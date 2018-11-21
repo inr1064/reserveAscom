@@ -20,6 +20,7 @@ public class Reserve_date extends AppCompatActivity{
     int adult;
     int child;
     int playTime;
+    int total;
 
     ArrayList<ReserveSpaceVO> list = new ArrayList<>();
 
@@ -38,6 +39,7 @@ public class Reserve_date extends AppCompatActivity{
         adult = intent.getIntExtra("adult",0);
         child = intent.getIntExtra("child", 0);
         playTime = intent.getIntExtra("playTime", 0);
+        total = intent.getIntExtra("total",0);
 
         list = (ArrayList<ReserveSpaceVO>) intent.getSerializableExtra("ReserveSpaceList");
 
@@ -50,6 +52,7 @@ public class Reserve_date extends AppCompatActivity{
                 intent.putExtra("child",child);
                 intent.putExtra("playTime",playTime);
                 intent.putExtra("ReserveSpaceList",list);
+                intent.putExtra("total",total);
                 startActivity(intent);
             }
         });

@@ -29,6 +29,7 @@ public class Week_calendar extends AppCompatActivity {
     int adult;
     int child;
     int playTime;
+    int total;
 
     final static int RESERVELIMIT = 9;
     final static int BUSSINESSHOUR = 10;
@@ -67,6 +68,7 @@ public class Week_calendar extends AppCompatActivity {
         adult = intent.getIntExtra("adult", 0);
         child = intent.getIntExtra("child", 0);
         playTime = intent.getIntExtra("playTime", 0);
+        total = intent.getIntExtra("total",0);
 
         Log.e("receivedData",playTime+"");
 
@@ -78,7 +80,7 @@ public class Week_calendar extends AppCompatActivity {
 
         intent2.putExtra("adult",adult);
         intent2.putExtra("child",child);
-
+        intent2.putExtra("total",total);
         as = new AscomScheduler(list);
 
         reserveCal = as.subtractDate();
@@ -385,14 +387,6 @@ public class Week_calendar extends AppCompatActivity {
             to_day = cal.get(cal.DATE);
         }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        //바깥레이어 클릭시 안닫히게
-        if(event.getAction()==MotionEvent.ACTION_OUTSIDE){
-            return false;
-        }
-        return true;
-    }
     @Override
     public void onBackPressed(){
         backPressCloseHandler.onBackPressed();
