@@ -42,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="485dp"
+        android:layout_marginTop="482dp"
         android:layout_marginRight="230dp"
         >
         <TextView
@@ -67,7 +67,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="515dp"
+        android:layout_marginTop="508dp"
         android:layout_marginRight="230dp"
         >
 
@@ -116,7 +116,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="570dp"
+        android:layout_marginTop="567dp"
         android:layout_marginRight="50dp"
         >
         <TextView

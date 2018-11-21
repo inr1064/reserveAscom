@@ -30,6 +30,7 @@ public class Ind_info extends AppCompatActivity {
     int startTime;
     int adult;
     int child;
+    int total;
 
     TextView resDateTV,playTimeTV,numberTV;
     EditText resName,phone,mail;
@@ -49,6 +50,7 @@ public class Ind_info extends AppCompatActivity {
         startTime = intent.getIntExtra("startTime",0);
         adult = intent.getIntExtra("adult",0);
         child = intent.getIntExtra("child",0);
+        total = intent.getIntExtra("total",0);
 
         final Intent intent2 = new Intent(this,Ind_info_confirm.class);
         intent2.putExtra("year",to_year);
@@ -58,6 +60,7 @@ public class Ind_info extends AppCompatActivity {
         intent2.putExtra("startTime",startTime);
         intent2.putExtra("adult",adult);
         intent2.putExtra("child",child);
+        intent2.putExtra("total",total);
 
 
         resDateTV = (TextView)findViewById(R.id.resDateTV);
