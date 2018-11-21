@@ -109,8 +109,25 @@ public class Ind_info_confirm extends AppCompatActivity {
 
                 try{
                     GMailSender sender = new GMailSender("ascomkikikids","a-s.com.co");//MailAccount,password
-                    sender.sendMail("This is Subject",
-                            "This is Body",
+                    sender.sendMail("KikiKids予約完了のお知らせ",
+                            "この度は「KikKids」をご利用いただきまして誠にありがとうございます。\n" +
+                                    "\n"+
+                                    "ご予約が完了いたしました。下記予約内容をご確認いただき、そのまま予約日時にご来店ください。\n" +
+                                    "※ご入店の際には予約番号が必要になります。メモを取るかこのメールを保存してご来店ください。\n"+
+                                    "\n"+
+                                    "ご予約内容\n"+
+                                    "●予約番号 :"+resNum+"\n"+
+                                    "●ご来店日時 :"+startTime+"時"+"\n"+
+                                    "●利用時間 :"+playTime+"時間"+"\n"+
+                                    "●人数 :"+"大人 "+adult+"人 "+"子供"+child+"人"+"\n"+
+                                    "●施設料金 :"+total+"円"+"\n"+
+                                    "\n"+
+                                    "※本メールは送信専用です。このメッセージに返信頂いても回答いたしかねますのでご了承ください。\n"+
+                                    "※本メールにお心あたりがない場合、ご不明な点がある場合は下記電話番号までお問い合わせください。\n"+
+                                    "\n"+
+                                    "KikiKids\n" +
+                                    "電話番号 000-0000-0000"
+                            ,
                             "ascomkikikids@gmail.com",
                             "ik872000@gmail.com"
                     );
