@@ -121,6 +121,8 @@ public class Week_calendar extends AppCompatActivity {
                 btn.setId(newBtn);
                 btn.setLayoutParams(pm);
                 btn.setText(reserveCal[i][j] + " ");
+              
+
                 btn.setBackgroundColor(Color.WHITE);
                 btn.setOnClickListener(new KnowIndexOnClickListener(i, j,playTime) {
                     Calendar cal = Calendar.getInstance();
