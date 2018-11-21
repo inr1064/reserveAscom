@@ -105,6 +105,7 @@
                     max="4"
                     min="1"
                     initial="1"
+                    android:descendantFocusability="blocksDescendants"
                     />
 
                 <a_s.com.co.reserveascom.MyNumberPicker
@@ -116,6 +117,7 @@
                     max="4"
                     min="1"
                     initial="1"
+                    android:descendantFocusability="blocksDescendants"
                     />
 
                 <a_s.com.co.reserveascom.MyNumberPicker
@@ -127,6 +129,7 @@
                     max="2"
                     min="1"
                     initial="1"
+                    android:descendantFocusability="blocksDescendants"
                     />
 
             </TableRow>
