@@ -26,7 +26,5 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation files('C:/Users/owner/AndroidStudioProjects/reserveAscom/libs/activation.jar')
-    implementation files('C:/Users/owner/AndroidStudioProjects/reserveAscom/libs/additionnal.jar')
-    implementation files('C:/Users/owner/AndroidStudioProjects/reserveAscom/libs/mail.jar')
+    implementation files('libs/activation.jar')
 }
