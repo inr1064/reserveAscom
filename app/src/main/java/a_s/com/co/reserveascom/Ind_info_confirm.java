@@ -36,6 +36,7 @@ public class Ind_info_confirm extends AppCompatActivity {
     int startTime;
     int adult;
     int child;
+    int total;
     int resNum;
 
     String resName;
@@ -62,6 +63,7 @@ public class Ind_info_confirm extends AppCompatActivity {
         startTime = intent.getIntExtra("startTime",0);
         adult = intent.getIntExtra("adult",0);
         child = intent.getIntExtra("child",0);
+        total = intent.getIntExtra("total", 0);
 
         resName = intent.getStringExtra("resName");
         phone = intent.getStringExtra("phone");
@@ -86,6 +88,7 @@ public class Ind_info_confirm extends AppCompatActivity {
         resNameTV.setText(resName+"様 ");
         phoneTV.setText(phone+"");
         emailTV.setText(email);
+        priceTV.setText(Integer.toString(total));
 
         forwardBtn.setOnClickListener(new View.OnClickListener() {
             @Override

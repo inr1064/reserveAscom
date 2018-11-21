@@ -59,12 +59,9 @@ public class MyNumberPicker extends NumberPicker {
 
     }
 
-
-
     public MyNumberPicker(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         processAttributes(attrs);
     }
-
 
 }

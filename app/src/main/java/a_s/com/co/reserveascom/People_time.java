@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Checkable;
+import android.widget.EditText;
+import android.widget.NumberPicker;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -31,6 +34,8 @@ public class People_time extends AppCompatActivity {
 
     private BackPressCloseHandler backPressCloseHandler;
     Button ptBtn;
+    EditText totalTV;
+    int total = 0;
     int adult = 1;
     int child = 1;
     int playTime = 1;
@@ -56,10 +61,98 @@ public class People_time extends AppCompatActivity {
         StrictMode.setThreadPolicy(policy);
 
         ptBtn = (Button) findViewById(R.id.ptBtn);
+        totalTV = (EditText) findViewById(R.id.totalTV);
         a = (MyNumberPicker) findViewById(R.id.adult);
         c = (MyNumberPicker) findViewById(R.id.child);
         p = (MyNumberPicker) findViewById(R.id.playTime);
         cb = (CheckBox)findViewById(R.id.acceptCheck);
+
+        totalTV.setFocusable(false); //EditText 수정불가능
+        totalTV.setClickable(false); //EditText 클릭불가능
+
+        totalTV.setText(String.valueOf(total = a.getValue()*(300*p.getValue()) + c.getValue()*(600*p.getValue()))); //초기 화면에서 선택된 총합의 비용
+
+        //NumberPicker 조정시 총합 나오는 알고리즘
+        a.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker numberPicker, int i, int i1) {
+            switch (a.getValue()){
+                case 1:
+                    total = 0; //총합을 초기화
+                    total = a.getValue()*(300*p.getValue()) + c.getValue()*(600*p.getValue()); //계산식
+                    totalTV.setText(String.valueOf(total)); //값에 세팅
+                    break;
+                case 2:
+                    total = 0;
+                    total = a.getValue()*(300*p.getValue()) + c.getValue()*(600*p.getValue());
+                    totalTV.setText(String.valueOf(total));
+                    break;
+                case 3:
+                    total = 0;
+                    total = a.getValue()*(300*p.getValue()) + c.getValue()*(600*p.getValue());
+                    totalTV.setText(String.valueOf(total));
+                    break;
+                case 4:
+                    total = 0;
+                    total = a.getValue()*(300*p.getValue()) + c.getValue()*(600*p.getValue());
+                    totalTV.setText(String.valueOf(total));
+                    break;
+                default:
+                    break;
+            }
+
+            }
+        });
+
+        c.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker numberPicker, int i, int i1) {
+                switch (c.getValue()){
+                    case 1:
+                        total = 0; //총합을 초기화
+                        total = a.getValue()*(300*p.getValue()) + c.getValue()*(600*p.getValue()); //계산식
+                        totalTV.setText(String.valueOf(total)); //값에 세팅
+                        break;
+                    case 2:
+                        total = 0;
+                        total = a.getValue()*(300*p.getValue()) + c.getValue()*(600*p.getValue());
+                        totalTV.setText(String.valueOf(total));
+                        break;
+                    case 3:
+                        total = 0;
+                        total = a.getValue()*(300*p.getValue()) + c.getValue()*(600*p.getValue());
+                        totalTV.setText(String.valueOf(total));
+                        break;
+                    case 4:
+                        total = 0;
+                        total = a.getValue()*(300*p.getValue()) + c.getValue()*(600*p.getValue());
+                        totalTV.setText(String.valueOf(total));
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
+        p.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker numberPicker, int i, int i1) {
+                switch (p.getValue()){
+                    case 1:
+                        total = 0; //총합을 초기화
+                        total = a.getValue()*(300*p.getValue()) + c.getValue()*(600*p.getValue()); //계산식
+                        totalTV.setText(String.valueOf(total)); //값에 세팅
+                        break;
+                    case 2:
+                        total = 0;
+                        total = a.getValue()*(300*p.getValue()) + c.getValue()*(600*p.getValue());
+                        totalTV.setText(String.valueOf(total));
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
 
 
 
@@ -143,7 +236,7 @@ public class People_time extends AppCompatActivity {
                 intent.putExtra("child",child);
                 intent.putExtra("playTime",playTime);
                 intent.putExtra("ReserveSpaceList",list);
-
+                intent.putExtra("total",total);
                 startActivity(intent);
                 }
                 else {
