@@ -8,13 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-
     <style name="SplashTheme" parent="@android:style/Theme.Light.NoTitleBar">
         <item name="android:windowBackground">@drawable/kikikids_title_splash</item>
     </style>
-
-
-
 
 
 </resources>

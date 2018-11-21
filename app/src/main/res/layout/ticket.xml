@@ -1,38 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <FrameLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="予約番号発行"
-        android:gravity="center"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="予約番号です。"
-        android:gravity="center"
+        android:background="@drawable/ticket"
         />
     <TextView
         android:id="@+id/resNumTV"
-        android:layout_width="match_parent"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="メールで送信致しましたので
-        ご確認お願いします。"
-        android:gravity="center"
-        />
-    <Button
-        android:id="@+id/backToIntro"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text="終了して最初に"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="-5dp"
+        android:layout_gravity="center"
+        android:text="2021"
+        android:textSize="25dp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:fontFamily="@font/mini_wakuwaku_maru"
         />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/backToIntro"
+        android:layout_width="100dp"
+        android:layout_height="25dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="200dp"
+        android:background="@drawable/exit"
+        />
+
+    </FrameLayout>
+
+</RelativeLayout>
