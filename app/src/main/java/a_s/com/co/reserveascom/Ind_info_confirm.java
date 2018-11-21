@@ -108,6 +108,18 @@ public class Ind_info_confirm extends AppCompatActivity {
                 String param = makeParams(params);
 
                 try{
+                    GMailSender sender = new GMailSender("ascomkikikids","a-s.com.co");//MailAccount,password
+                    sender.sendMail("This is Subject",
+                            "This is Body",
+                            "ascomkikikids@gmail.com",
+                            "ik872000@gmail.com"
+                    );
+                } catch (Exception e){
+                    Log.e("SendMail",e.getMessage(),e);
+                }//MailSender
+
+
+                try{
                     //サーバーのIPアドレス、ポートの番号、Context root、Request Mapping
                     url = new URL("http://192.168.1.156:8888/kidsCafe/mobile/insertReserve");
                 } catch (MalformedURLException e){

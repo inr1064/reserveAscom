@@ -24,6 +24,7 @@ public class Ticket extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ticket);
 
+
         backPressCloseHandler = new BackPressCloseHandler(this);
 
         Intent intent = getIntent();

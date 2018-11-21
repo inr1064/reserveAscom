@@ -107,19 +107,19 @@
                     />
 
             </TableRow>
+
             <TableRow
                 android:id="@+id/hour2"
                 android:layout_width="50dp"
-                android:layout_height="50dp"
-                >
+                android:layout_height="50dp">
+
                 <Button
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:text="11時"
-                    android:textSize="15dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/time"
-                    />
+                    android:text="11時"
+                    android:textSize="15dp" />
 
             </TableRow>
             <TableRow
@@ -152,6 +152,24 @@
                     />
 
             </TableRow>
+
+            <TableRow
+                android:id="@+id/hour6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                >
+
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/time"
+                    android:text="15時"
+                    android:textSize="15dp" />
+
+            </TableRow>
+
             <TableRow
                 android:id="@+id/hour5"
                 android:layout_width="50dp"
@@ -167,22 +185,7 @@
                     />
 
             </TableRow>
-            <TableRow
-                android:id="@+id/hour6"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
 
-                >
-                <Button
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:text="15時"
-                    android:textSize="15dp"
-                    android:layout_marginTop="3dp"
-                    android:background="@drawable/time"
-                    />
-
-            </TableRow>
             <TableRow
                 android:id="@+id/hour7"
                 android:layout_width="50dp"
