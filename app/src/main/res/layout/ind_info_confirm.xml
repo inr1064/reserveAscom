@@ -42,8 +42,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="480dp"
-        android:layout_marginRight="200dp"
+        android:layout_marginTop="485dp"
+        android:layout_marginRight="230dp"
         >
         <TextView
             android:layout_width="match_parent"
@@ -67,8 +67,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="510dp"
-        android:layout_marginRight="200dp"
+        android:layout_marginTop="515dp"
+        android:layout_marginRight="230dp"
         >
 
         <TextView
@@ -92,7 +92,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="520dp"
+        android:layout_marginTop="480dp"
         android:layout_marginRight="50dp"
         >
         <TextView
@@ -104,7 +104,7 @@
             />
         <TextView
             android:id="@+id/playTimeTV"
-            android:layout_width="140dp"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAlignment="center"
@@ -140,7 +140,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="490dp"
+        android:layout_marginTop="535dp"
         android:layout_marginRight="50dp"
         >
         <TextView
@@ -152,7 +152,7 @@
             />
         <TextView
             android:id="@+id/dateTV"
-            android:layout_width="230dp"
+            android:layout_width="450dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColor="#000000"
@@ -164,7 +164,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="270dp"
+        android:layout_marginTop="265dp"
         android:layout_marginRight="50dp"
         >
         <TextView
@@ -187,7 +187,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="310dp"
         android:layout_marginRight="50dp"
         >
 
@@ -211,7 +211,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="350dp"
         android:layout_marginRight="50dp"
         >
 
