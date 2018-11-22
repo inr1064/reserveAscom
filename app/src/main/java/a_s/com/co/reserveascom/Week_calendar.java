@@ -406,4 +406,19 @@ public class Week_calendar extends AppCompatActivity {
         backPressCloseHandler.onBackPressed();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (resultCode){
+
+            case 3:
+               adult = data.getIntExtra("adult",0);
+               child = data.getIntExtra("child",0);
+               playTime = data.getIntExtra("playTime",0);
+               total = data.getIntExtra("total",0);
+               break;
+
+        }
+    }
 }
