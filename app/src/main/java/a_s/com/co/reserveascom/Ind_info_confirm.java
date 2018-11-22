@@ -224,6 +224,25 @@ public class Ind_info_confirm extends AppCompatActivity {
 
         });
 
+        //backwardBtnの部分
+        backwardBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent();
+                intent.getIntExtra("adult",0);
+                intent.getIntExtra("child",0);
+                intent.getIntExtra("total",0);
+                intent.getIntExtra("year",0);
+                intent.getIntExtra("month",0);
+                intent.getIntExtra("today",0);
+                intent.getIntExtra("playTime",0);
+                intent.getIntExtra("startTime",0);
+                setResult(4,intent);
+                finish();
+
+            }
+        });
 
     }
 

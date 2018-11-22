@@ -24,7 +24,7 @@ public class Reserve_date extends AppCompatActivity{
 
     ArrayList<ReserveSpaceVO> list = new ArrayList<>();
 
-    Button reserveBtn;
+    Button reserveBtn,reserve_back_Btn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,8 +34,9 @@ public class Reserve_date extends AppCompatActivity{
         backPressCloseHandler = new BackPressCloseHandler(this);
 
         reserveBtn = (Button) findViewById(R.id.reserveBtn);
+        reserve_back_Btn = (Button) findViewById(R.id.reserve_back_Btn);
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         adult = intent.getIntExtra("adult",0);
         child = intent.getIntExtra("child", 0);
         playTime = intent.getIntExtra("playTime", 0);
@@ -57,10 +58,22 @@ public class Reserve_date extends AppCompatActivity{
             }
         });
 
+        reserve_back_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent();
+                setResult(2,intent); //intent의 코드 넘버 요청
+                finish(); //intent를 닫는다.
+
+            }
+        });
+
     }
     @Override
     public void onBackPressed(){
         backPressCloseHandler.onBackPressed();
     }
+
 
 }

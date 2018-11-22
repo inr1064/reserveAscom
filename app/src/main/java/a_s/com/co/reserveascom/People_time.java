@@ -33,7 +33,7 @@ import java.util.Map;
 public class People_time extends AppCompatActivity {
 
     private BackPressCloseHandler backPressCloseHandler;
-    Button ptBtn;
+    Button ptBtn, pt_back_Btn;
     EditText totalTV;
     int total = 0;
     int adult = 1;
@@ -61,6 +61,7 @@ public class People_time extends AppCompatActivity {
         StrictMode.setThreadPolicy(policy);
 
         ptBtn = (Button) findViewById(R.id.ptBtn);
+        pt_back_Btn = (Button) findViewById(R.id.pt_back_Btn);
         totalTV = (EditText) findViewById(R.id.totalTV);
         a = (MyNumberPicker) findViewById(R.id.adult);
         c = (MyNumberPicker) findViewById(R.id.child);
@@ -247,7 +248,20 @@ public class People_time extends AppCompatActivity {
             }
 
         });
-    }
+
+
+        pt_back_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent();
+                setResult(1,intent); //intent의 코드 넘버 요청
+                finish(); //intent를 닫는다.
+
+            }
+        });
+
+    }//onCreate End
 
     @Override
     public void onBackPressed(){
@@ -306,6 +320,17 @@ public class People_time extends AppCompatActivity {
         }
     }
 
+    //intent의 코드 넘버 받는 곳
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (resultCode){
+
+            case 2:
+                break;
+        }
+    }
 }
 
 

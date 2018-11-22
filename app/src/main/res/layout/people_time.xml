@@ -32,6 +32,7 @@
             />
       
        <Button
+            android:id="@+id/pt_back_Btn"
             android:layout_width="100dp"
             android:layout_height="25dp"
             android:layout_gravity="center"
@@ -68,7 +69,8 @@
                     android:gravity="center"
                     android:text="大人"
                     android:textColor="#000000"
-
+                    android:textSize="15dp"
+                    android:layout_marginRight="10dp"
                     />
 
 
@@ -78,6 +80,7 @@
                     android:gravity="center"
                     android:text="子供"
                     android:textColor="#000000"
+                    android:textSize="15dp"
                     />
 
 
@@ -87,6 +90,8 @@
                     android:gravity="center"
                     android:text="利用時間"
                     android:textColor="#000000"
+                    android:textSize="15dp"
+                    android:layout_marginLeft="10dp"
                     />
 
 
@@ -177,8 +182,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="総合    　￥"
+                    android:text="総計    　￥"
                     android:textColor="#000000"
+                    android:textSize="15dp"
                 />
                 <EditText
                     android:id="@+id/totalTV"

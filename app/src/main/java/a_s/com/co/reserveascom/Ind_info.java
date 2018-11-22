@@ -34,7 +34,7 @@ public class Ind_info extends AppCompatActivity {
 
     TextView resDateTV,playTimeTV,numberTV;
     EditText resName,phone,mail;
-    Button ind_infoBtn;
+    Button ind_infoBtn, ind_back_infoBtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -73,6 +73,7 @@ public class Ind_info extends AppCompatActivity {
         mail = (EditText)findViewById(R.id.mail);
 
         ind_infoBtn = (Button)findViewById(R.id.ind_infoBtn);
+        ind_back_infoBtn = (Button) findViewById(R.id.ind_back_infoBtn);
 
         resDateTV.setText(to_year+"-"+to_month+"-"+to_day+" "+"start in :"+startTime+"o`clock");
         playTimeTV.setText(playTime+"hour(s)");
@@ -136,10 +137,44 @@ public class Ind_info extends AppCompatActivity {
 
         );
 
+        ind_back_infoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent();
+                intent.putExtra("adult",adult);
+                intent.putExtra("child",child);
+                intent.putExtra("playTime",playTime);
+                intent.putExtra("total",total);
+                setResult(3,intent);
+                finish();
+            }
+        });
+
     }
 
     @Override
     public void onBackPressed(){
         backPressCloseHandler.onBackPressed();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (resultCode){
+
+            case 4:
+              adult = data.getIntExtra("adult",0);
+              child = data.getIntExtra("child",0);
+              total = data.getIntExtra("total",0);
+              to_year = data.getIntExtra("year",0);
+              to_month = data.getIntExtra("month",0);
+              to_day = data.getIntExtra("today",0);
+              playTime = data.getIntExtra("playTime",0);
+              startTime = data.getIntExtra("startTime",0);
+              break;
+
+        }
     }
 }
