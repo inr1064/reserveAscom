@@ -210,7 +210,7 @@ public class Ind_info_confirm extends AppCompatActivity {
                                     "※本メールにお心あたりがない場合、ご不明な点がある場合は下記電話番号までお問い合わせください。\n"+
                                     "\n"+
                                     "ASCOM KikiKids\n" +
-                                    "電話番号 03-592-0808"
+                                    "電話番号 03-5692-0808"
                             ,
                             "ascomkikikids@gmail.com",
                             ""+email
