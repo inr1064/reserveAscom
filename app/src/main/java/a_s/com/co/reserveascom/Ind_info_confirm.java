@@ -64,6 +64,7 @@ public class Ind_info_confirm extends AppCompatActivity {
         adult = intent.getIntExtra("adult",0);
         child = intent.getIntExtra("child",0);
         total = intent.getIntExtra("total", 0);
+        resNum = intent.getIntExtra("resNum",0);
 
         resName = intent.getStringExtra("resName");
         phone = intent.getStringExtra("phone");
@@ -103,6 +104,7 @@ public class Ind_info_confirm extends AppCompatActivity {
                 params.put("resName",resName);
                 params.put("phone",phone);
                 params.put("mail",email);
+                params.put("resNum",Integer.toString(resNum));
 
 
                 String param = makeParams(params);
@@ -144,20 +146,6 @@ public class Ind_info_confirm extends AppCompatActivity {
                                 page += line;
                             }
 
-                            try
-                            {
-                                jsonParse(page);
-                            }
-                            catch (Exception e)
-                            {
-
-                                Log.e(this.getClass().getName(),"problem = "+e+"");
-                            }
-
-                            /*Log.e(this.getClass().getName(),"arraylist = "+list+"");*/
-
-
-
                         }
 
                     }
@@ -169,23 +157,16 @@ public class Ind_info_confirm extends AppCompatActivity {
                     }
                 }
 
+
+
+
+
                 Intent intent2 = new Intent(Ind_info_confirm.this,Ticket.class);
+
                 intent2.putExtra("resNum",resNum);
+
+
                 startActivity(intent2);
-
-
-                /*Intent intent2 = new Intent(Ind_info_confirm.this,Ticket.class);
-
-                intent2.putExtra("year",to_year);
-                intent2.putExtra("month",to_month);
-                intent2.putExtra("today",to_day);
-                intent2.putExtra("playTime",playTime);
-                intent2.putExtra("startTime",startTime);
-                intent2.putExtra("adult",adult);
-                intent2.putExtra("child",child);
-                intent2.putExtra("resName",resName);
-                intent2.putExtra("phone",phone);
-                intent2.putExtra("email",email);*/
 
 
                 try{
@@ -194,7 +175,7 @@ public class Ind_info_confirm extends AppCompatActivity {
 
                               " "+resName+" 様\n"+
                                     "\n"+
-                                    "この度は「KikKids」をご利用いただきまして誠にありがとうございます。\n" +
+                                    "この度は「KikiKids」をご利用いただきまして誠にありがとうございます。\n" +
                                     "\n"+
                                     "ご予約が完了いたしました。下記予約内容をご確認いただき、そのまま予約日時にご来店ください。\n" +
                                     "※ご入店の際には予約番号が必要になります。メモを取るかこのメールを保存してご来店ください。\n"+
@@ -278,7 +259,7 @@ public class Ind_info_confirm extends AppCompatActivity {
         return sbParam.toString();
     }
 
-    public void jsonParse(String page){
+    /*public void jsonParse(String page){
         JSONArray jarray = null;
         JSONObject item = null;
         String tempInt = null;
@@ -295,9 +276,9 @@ public class Ind_info_confirm extends AppCompatActivity {
 
                 resNum = Integer.parseInt(tempInt);
 
-                /*space = new ReserveSpaceVO(item.getString("resDate"),item.getInt("resTime"));*/
+                *//*space = new ReserveSpaceVO(item.getString("resDate"),item.getInt("resTime"));*//*
 
-                /*list.add(space);*/
+                *//*list.add(space);*//*
 
             }
 
@@ -306,5 +287,5 @@ public class Ind_info_confirm extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }

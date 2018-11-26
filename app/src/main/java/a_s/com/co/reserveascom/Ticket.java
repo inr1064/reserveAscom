@@ -7,15 +7,31 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
+
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 
 public class Ticket extends AppCompatActivity {
 
     private BackPressCloseHandler backPressCloseHandler;
+
     TextView resNumTV;
+
+
+
     int resNum;
+
+    String resName;
+    String phone;
+
+
+    URL url;
+    HttpURLConnection con;
 
     Button backToIntro;
 
@@ -23,6 +39,7 @@ public class Ticket extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ticket);
+
 
 
         backPressCloseHandler = new BackPressCloseHandler(this);
