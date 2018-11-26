@@ -1,5 +1,6 @@
 package a_s.com.co.reserveascom;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,8 +16,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 public class Ind_info extends AppCompatActivity {
@@ -31,10 +43,14 @@ public class Ind_info extends AppCompatActivity {
     int adult;
     int child;
     int total;
+    int resNum;
 
     TextView resDateTV,playTimeTV,numberTV;
     EditText resName,phone,mail;
     Button ind_infoBtn, ind_back_infoBtn;
+
+    URL url;
+    HttpURLConnection con;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -109,6 +125,63 @@ public class Ind_info extends AppCompatActivity {
                                                }
 
 
+                                               try{
+                                                   //サーバーのIPアドレス、ポートの番号、Context root、Request Mapping
+                                                   url = new URL("http://192.168.1.156:8888/kidsCafe/mobile/getResNum");
+                                               } catch (MalformedURLException e){
+                                                   Toast.makeText(Ind_info.this,"Wrong URL.", Toast.LENGTH_SHORT).show();
+                                               }
+
+                                               try{
+                                                   con = (HttpURLConnection) url.openConnection();
+
+                                                   if(con != null){
+
+                                                       con.setConnectTimeout(10000);	//limit connection time
+                                                       con.setUseCaches(false);		//able/disable Cache
+                                                       con.setRequestMethod("POST"); // select Method
+                                                       con.setRequestProperty("Accept-Charset", "UTF-8"); // Accept-Charset.
+                                                       con.setRequestProperty("Context_Type", "application/x-www-form-urlencoded;charset=UTF-8");
+
+
+
+                                                       if(con.getResponseCode() == HttpURLConnection.HTTP_OK){
+
+                                                           BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
+
+                                                           String line;
+                                                           String page = "";
+                                                           System.out.print(page);
+
+                                                           while ((line = reader.readLine()) != null){
+                                                               page += line;
+                                                           }
+
+                                                           try
+                                                           {
+                                                               jsonParse(page);
+
+                                                           }
+                                                           catch (Exception e)
+                                                           {
+
+                                                               Log.e(this.getClass().getName(),"problem = "+e+"");
+                                                           }
+
+
+
+
+                                                       }
+
+                                                   }
+                                               }catch (Exception e){
+                                                   Toast.makeText(Ind_info.this, "" + e.toString(), Toast.LENGTH_SHORT).show();
+                                               } finally {
+                                                   if(con != null){
+                                                       con.disconnect();
+                                                   }
+                                               }
+
 
 
                                                String resN = resName.getText().toString();
@@ -118,18 +191,8 @@ public class Ind_info extends AppCompatActivity {
                                                intent2.putExtra("resName",resN);
                                                intent2.putExtra("phone",ph);
                                                intent2.putExtra("email",ma);
-                                           /*  if(!android.util.Patterns.EMAIL_ADDRESS.matcher(ma).matches())
-                                             {
-                                                   Toast.makeText(Ind_info.this,"E-mail形式ではありません",Toast.LENGTH_LONG);
-                                                 return;
-                                             } else if (!Pattern.matches("^01(?:0|1|[6-9]) - (?:\\d{3}|\\d{4}) - \\d{4}$", ph))
-                                               {
-                                                   Toast.makeText(Ind_info.this,"携帯電話番号形式ではありません",Toast.LENGTH_LONG);
-                                                   return;
-                                             }else{
+                                               intent2.putExtra("resNum",resNum);
 
-                                                 startActivity(intent2);
-                                             }*/
                                                startActivity(intent2);
 
                                            }
@@ -175,6 +238,53 @@ public class Ind_info extends AppCompatActivity {
               startTime = data.getIntExtra("startTime",0);
               break;
 
+        }
+    }
+
+    //サーバーに送るデータをStringに変換
+    public String makeParams(HashMap<String,String> params){
+        StringBuffer sbParam = new StringBuffer();
+        String key = "";
+        String value = "";
+        boolean isAnd = false;
+
+        for(Map.Entry<String,String> elem : params.entrySet()){
+            key = elem.getKey();
+            value = elem.getValue();
+
+            if(isAnd){
+                sbParam.append("&");
+            }
+
+            sbParam.append(key).append("=").append(value);
+
+            if(!isAnd){
+                if(params.size() >= 2){
+                    isAnd = true;
+                }
+            }
+        }
+
+        return sbParam.toString();
+    }
+
+    public void jsonParse(String page){
+        JSONObject item = null;
+        String tempInt = null;
+
+
+        try {
+            item = new JSONObject(page);
+
+
+                tempInt = item.getString("resNum");
+
+                resNum = Integer.parseInt(tempInt);
+                //Toast.makeText(Ind_info.this, "" + resNum, Toast.LENGTH_SHORT).show();
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }
